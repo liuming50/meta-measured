@@ -21,7 +21,7 @@ SRC_URI = " \
 S = "${WORKDIR}/${@d.getVar('BPN',d).upper()}"
 
 # https://lists.yoctoproject.org/pipermail/yocto/2013-November/017042.html
-SRCREV = "${AUTOREV}"
+SRCREV = "f9d80f7aa6eb3e5cc6519bcc1e474fc39a373b7b"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 

@@ -9,7 +9,7 @@ SRC_URI = "git://github.com/01org/tpm2.0-tools.git;protocol=git;branch=master;na
 
 S = "${WORKDIR}/tpm2.0-tools"
 # https://lists.yoctoproject.org/pipermail/yocto/2013-November/017042.html
-SRCREV = "${AUTOREV}"
+SRCREV = "f36476e9135b1522051e1701e138295ccacece12"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 
