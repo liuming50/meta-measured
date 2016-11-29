@@ -86,7 +86,7 @@ USERADD_PARAM_${PN} = "-M -d /var/lib/tpm -s /bin/false -g tss tss"
 
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "tcsd.service"
-SYSTEMD_AUTO_ENABLE = "disable"
+SYSTEMD_AUTO_ENABLE = "enable"
 
 do_install_append() {
         install -d ${D}${sysconfdir}/init.d
