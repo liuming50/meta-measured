@@ -9,6 +9,9 @@ PROVIDES = "packagegroup-tpm"
 RDEPENDS_packagegroup-tpm = "\
     trousers \
     tpm-tools \
+    "
+
+RRECOMMENDS_packagegroup-tpm = "\
     kernel-module-tpm-nsc \
     kernel-module-tpm-atmel \
     kernel-module-tpm-infineon \
