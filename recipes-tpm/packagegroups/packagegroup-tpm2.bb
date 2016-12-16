@@ -11,6 +11,8 @@ RDEPENDS_packagegroup-tpm2 = "\
     libtctidevice \
     libtctisocket \
     resourcemgr \
-    kernel-module-tpm-crb \
     tpm2.0-tools \
 "
+RRECOMMENDS_packagegroup-tpm2 = "\
+    kernel-module-tpm-crb \
+    "
