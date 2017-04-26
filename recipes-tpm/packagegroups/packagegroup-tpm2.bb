@@ -10,6 +10,7 @@ RDEPENDS_packagegroup-tpm2 = "\
     libtss2 \
     libtctidevice \
     libtctisocket \
+    libmarshal \
     resourcemgr \
     tpm2.0-tools \
 "
