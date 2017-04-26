@@ -11,7 +11,10 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/BSD;md5=377548
 
 # This doesn't seem to work. Keeping it here for completeness. Remove once
 # it's fixed upstream.
-DEPENDS = "autoconf-archive pkgconfig"
+DEPENDS += "autoconf-archive pkgconfig"
+RDEPENDS_libtss2 += "libmarshal"
+RDEPENDS_libtctidevice += "libmarshal"
+RDEPENDS_resourcemgr += "libtss2 libtctidevice libmarshal libtctisocket libgcc"
 
 SRC_URI = " \
     git://github.com/01org/TPM2.0-TSS.git;protocol=git;branch=master;name=TPM2.0-TSS;destsuffix=TPM2.0-TSS \

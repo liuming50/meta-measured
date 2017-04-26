@@ -5,6 +5,7 @@ SECTION = "tpm"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=91b7c548d73ea16537799e8060cea819"
 DEPENDS += "tpm2.0-tss openssl curl"
+RDEPENDS_${PN} += "libtss2 libtctisocket libtctidevice"
 SRC_URI = "git://github.com/01org/tpm2.0-tools.git;protocol=git;branch=master;name=tpm2.0-tools;destsuffix=tpm2.0-tools"
 
 S = "${WORKDIR}/tpm2.0-tools"
