@@ -28,7 +28,8 @@ SRCREV = "ab23d341b16f9c1515eb9c746b54c44c89eb58ef"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 
-PACKAGES =+ " \
+PACKAGES = " \
+    ${PN}-dbg \
     libtss2 \
     libtss2-dev \
     libtss2-staticdev \
