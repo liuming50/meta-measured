@@ -12,19 +12,18 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/BSD;md5=377548
 # This doesn't seem to work. Keeping it here for completeness. Remove once
 # it's fixed upstream.
 DEPENDS += "autoconf-archive pkgconfig"
-RDEPENDS_libtss2 += "libmarshal"
-RDEPENDS_libtctidevice += "libmarshal"
-RDEPENDS_resourcemgr += "libtss2 libtctidevice libmarshal libtctisocket libgcc"
+#RDEPENDS_libtss2 += "libmarshal"
+#RDEPENDS_libtctidevice += "libmarshal"
 
 SRC_URI = " \
-    git://github.com/01org/TPM2.0-TSS.git;protocol=git;branch=master;name=TPM2.0-TSS;destsuffix=TPM2.0-TSS \
-    "
+    git://github.com/01org/TPM2.0-TSS.git;protocol=http;branch=1.x;name=TPM2.0-TSS;destsuffix=TPM2.0-TSS \
+"
 
 # CAPS? SRSLY?
 S = "${WORKDIR}/${@d.getVar('BPN',d).upper()}"
 
 # https://lists.yoctoproject.org/pipermail/yocto/2013-November/017042.html
-SRCREV = "ab23d341b16f9c1515eb9c746b54c44c89eb58ef"
+SRCREV = "2186791bd2994235fd2ef72ac2356d042f5cb653"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 
@@ -42,7 +41,6 @@ PACKAGES = " \
     libmarshal \
     libmarshal-dev \
     libmarshal-staticdev \
-    resourcemgr \
 "
 
 FILES_libtss2 = "${libdir}/libsapi.so.*"
@@ -75,8 +73,6 @@ FILES_libtctisocket-staticdev = "${libdir}/libtcti-socket.a"
 FILES_libmarshal = "${libdir}/libmarshal.so.*"
 FILES_libmarshal-dev = "${libdir}/libmarshal.la ${libdir}/libmarshal.so"
 FILES_libmarshal-staticdev = "${libdir}/libmarshal.a"
-
-FILES_resourcemgr = "${sbindir}/resourcemgr"
 
 inherit autotools
 

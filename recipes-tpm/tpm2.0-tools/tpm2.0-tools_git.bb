@@ -4,17 +4,26 @@ SECTION = "tpm"
 
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=91b7c548d73ea16537799e8060cea819"
-DEPENDS += "tpm2.0-tss openssl curl autoconf-archive pkgconfig"
-RDEPENDS_${PN} += "libtss2 libtctisocket libtctidevice"
-SRC_URI = "git://github.com/01org/tpm2.0-tools.git;protocol=git;branch=master;name=tpm2.0-tools;destsuffix=tpm2.0-tools"
+DEPENDS += "tpm2.0-tss tpm2-abrmd openssl curl autoconf-archive pkgconfig"
+RDEPENDS_${PN} += "libtss2 tpm2-abrmd"
+SRC_URI = " \
+    git://github.com/01org/tpm2.0-tools.git;protocol=git;branch=master;name=tpm2.0-tools;destsuffix=tpm2.0-tools \
+    file://0001-Add-support-for-the-tabrmd-TCTI-module.patch \
+"
 
 S = "${WORKDIR}/tpm2.0-tools"
 # https://lists.yoctoproject.org/pipermail/yocto/2013-November/017042.html
-SRCREV = "4a31eb5460d549032e18f749187c2581ebb3dd91"
+SRCREV = "d8b0ac5b97f357db8cbd26dd237a794d5758e889"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 
 inherit autotools
+
+EXTRA_OECONF += " \
+    --without-tcti-device \
+    --without-tcti-socket \
+    --with-tcti-tabrmd \
+"
 
 SRC_URI += " \
     file://ax_check_compile_flag.m4 \
