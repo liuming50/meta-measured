@@ -5,10 +5,11 @@ SECTION = "tpm"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=91b7c548d73ea16537799e8060cea819"
 DEPENDS += "tpm2.0-tss tpm2-abrmd openssl curl autoconf-archive pkgconfig"
-RDEPENDS_${PN} += "libtss2 tpm2-abrmd"
+RDEPENDS_${PN} += "libtss2 libtctidevice"
 SRC_URI = " \
     git://github.com/01org/tpm2.0-tools.git;protocol=git;branch=master;name=tpm2.0-tools;destsuffix=tpm2.0-tools \
     file://0001-Add-support-for-the-tabrmd-TCTI-module.patch \
+    file://0001-tpm2-tools-use-dynamic-linkage-with-tpm2-abrmd.patch \
 "
 
 S = "${WORKDIR}/tpm2.0-tools"
@@ -20,7 +21,7 @@ PV = "${PVBASE}.${SRCPV}"
 inherit autotools
 
 EXTRA_OECONF += " \
-    --without-tcti-device \
+    --with-tcti-device \
     --without-tcti-socket \
     --with-tcti-tabrmd \
 "

@@ -1,18 +1,5 @@
-DESCRIPTION = "Packagegroup for TPM2 TCG TSS userspace and utilities."
-LICENSE = "MIT"
-PR = "r0"
+include packagegroup-tpm2.inc
 
-inherit packagegroup
-
-PROVIDES = "packagegroup-tpm2"
-
-RDEPENDS_packagegroup-tpm2 = "\
-    libtss2 \
-    libtctidevice \
-    libtctisocket \
+RDEPENDS_${PN} += "\
     tpm2-abrmd \
-    tpm2.0-tools \
 "
-RRECOMMENDS_packagegroup-tpm2 = "\
-    kernel-module-tpm-crb \
-    "
