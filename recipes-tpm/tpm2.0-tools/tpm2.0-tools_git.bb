@@ -14,7 +14,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/tpm2.0-tools"
 # https://lists.yoctoproject.org/pipermail/yocto/2013-November/017042.html
-SRCREV = "d8b0ac5b97f357db8cbd26dd237a794d5758e889"
+SRCREV = "287ddf88411146fabf16f9c812cb3caa411f9d17"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 

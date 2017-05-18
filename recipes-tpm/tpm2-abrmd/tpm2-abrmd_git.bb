@@ -19,7 +19,7 @@ SRC_URI = " \
     "
 
 # https://lists.yoctoproject.org/pipermail/yocto/2013-November/017042.html
-SRCREV = "89ba7696217f0466a78787a6e3df241d0123b60e"
+SRCREV = "129c82f92122909136e94f3642a0e9d668d8e26e"
 PVBASE := "${PV}"
 PV = "${PVBASE}.${SRCPV}"
 S = "${WORKDIR}/${BPN}"
